@@ -1,0 +1,44 @@
+* SPICE3 file created from 3_nand.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 out a vdd w_n84_47# pfet w=20 l=2
++  ad=300 pd=150 as=300 ps=150
+M1001 a_n52_8# b a_n71_8# Gnd nfet w=30 l=2
++  ad=300 pd=140 as=300 ps=140
+M1002 out c vdd w_n84_47# pfet w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1003 a_n71_8# a gnd Gnd nfet w=30 l=2
++  ad=0 pd=0 as=150 ps=70
+M1004 out b vdd w_n84_47# pfet w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 out c a_n52_8# Gnd nfet w=30 l=2
++  ad=150 pd=70 as=0 ps=0
+C0 b w_n84_47# 0.06fF
+C1 c w_n84_47# 0.06fF
+C2 gnd a_n71_8# 0.40fF
+C3 out a_n71_8# 0.05fF
+C4 out a_n52_8# 0.36fF
+C5 out vdd 0.98fF
+C6 out b 0.15fF
+C7 a vdd 0.02fF
+C8 out c 0.15fF
+C9 a_n52_8# a_n71_8# 0.40fF
+C10 out w_n84_47# 0.13fF
+C11 b a_n71_8# 0.03fF
+C12 a w_n84_47# 0.06fF
+C13 c a_n52_8# 0.03fF
+C14 vdd b 0.02fF
+C15 c vdd 0.02fF
+C16 a gnd 0.03fF
+C17 a out 0.05fF
+C18 vdd w_n84_47# 0.24fF
+C19 a_n52_8# Gnd 0.14fF
+C20 a_n71_8# Gnd 0.14fF
+C21 gnd Gnd 0.07fF
+C22 out Gnd 0.52fF
+C23 vdd Gnd 0.06fF
+C24 c Gnd 0.13fF
+C25 b Gnd 0.13fF
+C26 a Gnd 0.13fF
+C27 w_n84_47# Gnd 2.12fF

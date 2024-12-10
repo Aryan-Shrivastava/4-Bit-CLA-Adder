@@ -1,0 +1,109 @@
+magic
+tech scmos
+timestamp 1731334945
+<< nwell >>
+rect -88 33 -7 67
+<< ntransistor >>
+rect -77 -16 -75 24
+rect -58 -16 -56 24
+rect -39 -16 -37 24
+rect -20 -16 -18 24
+<< ptransistor >>
+rect -77 39 -75 59
+rect -58 39 -56 59
+rect -39 39 -37 59
+rect -20 39 -18 59
+<< ndiffusion >>
+rect -78 -16 -77 24
+rect -75 -16 -74 24
+rect -59 -16 -58 24
+rect -56 -16 -55 24
+rect -40 -16 -39 24
+rect -37 -16 -36 24
+rect -21 -16 -20 24
+rect -18 -16 -17 24
+<< pdiffusion >>
+rect -78 39 -77 59
+rect -75 39 -74 59
+rect -59 39 -58 59
+rect -56 39 -55 59
+rect -40 39 -39 59
+rect -37 39 -36 59
+rect -21 39 -20 59
+rect -18 39 -17 59
+<< ndcontact >>
+rect -82 -16 -78 24
+rect -74 -16 -70 24
+rect -63 -16 -59 24
+rect -55 -16 -51 24
+rect -44 -16 -40 24
+rect -36 -16 -32 24
+rect -25 -16 -21 24
+rect -17 -16 -13 24
+<< pdcontact >>
+rect -82 39 -78 59
+rect -74 39 -70 59
+rect -63 39 -59 59
+rect -55 39 -51 59
+rect -44 39 -40 59
+rect -36 39 -32 59
+rect -25 39 -21 59
+rect -17 39 -13 59
+<< polysilicon >>
+rect -77 59 -75 62
+rect -58 59 -56 62
+rect -39 59 -37 62
+rect -20 59 -18 62
+rect -77 24 -75 39
+rect -58 24 -56 39
+rect -39 24 -37 39
+rect -20 24 -18 39
+rect -77 -20 -75 -16
+rect -58 -20 -56 -16
+rect -39 -20 -37 -16
+rect -20 -20 -18 -16
+<< polycontact >>
+rect -81 28 -77 32
+rect -62 28 -58 32
+rect -43 28 -39 32
+rect -24 28 -20 32
+<< metal1 >>
+rect -88 63 -7 67
+rect -82 59 -78 63
+rect -63 59 -59 63
+rect -44 59 -40 63
+rect -25 59 -21 63
+rect -74 32 -70 39
+rect -55 32 -51 39
+rect -36 32 -32 39
+rect -17 32 -13 39
+rect -17 24 -13 27
+rect -82 -21 -78 -16
+rect -86 -25 -78 -21
+rect -74 -21 -70 -16
+rect -63 -21 -59 -16
+rect -74 -25 -59 -21
+rect -55 -21 -51 -16
+rect -44 -21 -40 -16
+rect -55 -25 -40 -21
+rect -36 -21 -32 -16
+rect -25 -21 -21 -16
+rect -36 -25 -21 -21
+<< metal2 >>
+rect -69 27 -55 32
+rect -50 27 -36 32
+rect -31 27 -17 32
+<< m123contact >>
+rect -74 27 -69 32
+rect -55 27 -50 32
+rect -36 27 -31 32
+rect -17 27 -12 32
+<< labels >>
+rlabel metal1 -60 65 -56 66 5 vdd
+rlabel polycontact -81 28 -77 32 1 a
+rlabel polycontact -62 28 -58 32 1 b
+rlabel polycontact -43 28 -39 32 1 c
+rlabel m123contact -17 27 -12 32 1 out
+rlabel polycontact -24 28 -20 32 1 d
+rlabel metal1 -85 -24 -81 -23 2 gnd
+<< end >>

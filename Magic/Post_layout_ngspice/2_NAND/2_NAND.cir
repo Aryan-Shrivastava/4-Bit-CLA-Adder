@@ -1,0 +1,50 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param LAMBDA=0.09u
+.param width_N={10*LAMBDA}
+.param width_P={20*LAMBDA}
+.global gnd vdd
+
+Vdd	vdd	gnd	'SUPPLY'    
+vin1 a 0 pulse 0 1.8 0ns 50ps 50ps 25ns 40ns
+vin3 b 0 pulse 0 1.8 0ns 50ps 50ps 6ns 10ns
+
+.option scale=0.01u
+
+M1000 a_n31_1# a gnd Gnd CMOSN w=180 l=18
++  ad=16200 pd=900 as=8100 ps=450
+M1001 out a vdd w_n44_29# CMOSP w=180 l=18
++  ad=16200 pd=900 as=16200 ps=900
+M1002 vdd b out w_n44_29# CMOSP w=180 l=18
++  ad=0 pd=0 as=0 ps=0
+M1003 a_n31_1# b out Gnd CMOSN w=180 l=18
++  ad=0 pd=0 as=8100 ps=450
+C0 vdd w_n44_29# 0.17fF
+C1 out w_n44_29# 0.09fF
+C2 a vdd 0.02fF
+C3 a gnd 0.05fF
+C4 b a_n31_1# 0.05fF
+C5 a out 0.04fF
+C6 b vdd 0.02fF
+C7 gnd a_n31_1# 0.31fF
+C8 b out 0.05fF
+C9 a w_n44_29# 0.06fF
+C10 out a_n31_1# 0.28fF
+C11 vdd out 0.49fF
+C12 b w_n44_29# 0.06fF
+C13 a_n31_1# Gnd 0.15fF
+C14 gnd Gnd 0.07fF
+C15 out Gnd 0.08fF
+C16 vdd Gnd 0.05fF
+C17 b Gnd 0.14fF
+C18 a Gnd 0.14fF
+C19 w_n44_29# Gnd 1.50fF
+
+.tran 0.1n 100n
+.control
+    run
+    set curplottitle="2023102025- Aryan Shrivastava"
+    set color0=white
+    set color1=black
+    plot v(a) v(b)+2 v(out)+4
+.endc

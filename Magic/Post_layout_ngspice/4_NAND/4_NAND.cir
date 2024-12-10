@@ -1,0 +1,79 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param LAMBDA=0.09u
+.param width_N={10*LAMBDA}
+.param width_P={20*LAMBDA}
+.global gnd vdd
+
+Vdd	vdd	gnd	'SUPPLY'
+
+va a gnd pulse 0 1.8 0ns 1ns 1ns 10ns 20ns
+vb b gnd pulse 0 1.8 0ns 1ns 1ns 5ns 10ns
+vc c gnd pulse 0 1.8 0ns 1ns 1ns 15ns 30ns
+vd d gnd pulse 0 1.8 0ns 1ns 1ns 20ns 40ns
+
+* SPICE3 file created from 4_nand.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 a_n37_n16# c a_n56_n16# Gnd CMOSN w=40 l=2
++  ad=400 pd=180 as=400 ps=180
+M1001 out b vdd w_n88_33# CMOSP w=20 l=2
++  ad=400 pd=200 as=400 ps=200
+M1002 a_n75_n16# a gnd Gnd CMOSN w=40 l=2
++  ad=400 pd=180 as=200 ps=90
+M1003 out d a_n37_n16# Gnd CMOSN w=40 l=2
++  ad=200 pd=90 as=0 ps=0
+M1004 out a vdd w_n88_33# CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 out d vdd w_n88_33# CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1006 a_n56_n16# b a_n75_n16# Gnd CMOSN w=40 l=2
++  ad=0 pd=0 as=0 ps=0
+M1007 out c vdd w_n88_33# CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 out c 0.15fF
+C1 vdd a 0.02fF
+C2 a_n56_n16# out 0.05fF
+C3 a_n56_n16# c 0.03fF
+C4 vdd d 0.02fF
+C5 vdd out 1.34fF
+C6 vdd c 0.02fF
+C7 a_n75_n16# b 0.03fF
+C8 a w_n88_33# 0.06fF
+C9 out b 0.15fF
+C10 d w_n88_33# 0.06fF
+C11 out w_n88_33# 0.17fF
+C12 a_n37_n16# d 0.03fF
+C13 c w_n88_33# 0.06fF
+C14 out a_n37_n16# 0.47fF
+C15 vdd b 0.02fF
+C16 a_n56_n16# a_n37_n16# 0.51fF
+C17 vdd w_n88_33# 0.32fF
+C18 a_n75_n16# gnd 0.51fF
+C19 gnd a 0.03fF
+C20 a_n75_n16# out 0.05fF
+C21 out a 0.05fF
+C22 a_n56_n16# a_n75_n16# 0.51fF
+C23 w_n88_33# b 0.06fF
+C24 out d 0.15fF
+C25 a_n37_n16# Gnd 0.16fF
+C26 a_n56_n16# Gnd 0.16fF
+C27 a_n75_n16# Gnd 0.16fF
+C28 gnd Gnd 0.08fF
+C29 out Gnd 0.72fF
+C30 vdd Gnd 0.08fF
+C31 d Gnd 0.13fF
+C32 c Gnd 0.13fF
+C33 b Gnd 0.13fF
+C34 a Gnd 0.13fF
+C35 w_n88_33# Gnd 2.77fF
+
+.tran 0.1n 100n
+.control
+    run
+    set curplottitle="2023102025- Aryan Shrivastava"
+    set color0=white
+    set color1=black
+    plot v(a) v(b)+2 v(c)+4 v(d)+6 v(out)+8
+.endc

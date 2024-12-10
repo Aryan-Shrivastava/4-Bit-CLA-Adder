@@ -1,0 +1,76 @@
+* SPICE3 file created from TSPC.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 gnd clk a_18_n39# Gnd CMOSN w=5 l=2
++  ad=100 pd=80 as=50 ps=40
+M1001 a_n1_n45# clk a_n8_n28# w_n14_n34# CMOSP w=10 l=2
++  ad=50 pd=30 as=100 ps=60
+M1002 a_49_n38# clk a_42_n24# Gnd CMOSN w=5 l=2
++  ad=50 pd=40 as=25 ps=20
+M1003 a_25_n24# clk vdd w_n14_n34# CMOSP w=10 l=2
++  ad=50 pd=30 as=200 ps=120
+M1004 q a_42_n24# vdd w_n14_n34# CMOSP w=10 l=2
++  ad=50 pd=30 as=0 ps=0
+M1005 vdd d a_n8_n28# w_n14_n34# CMOSP w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1006 vdd a_25_n24# a_42_n24# w_n14_n34# CMOSP w=10 l=2
++  ad=0 pd=0 as=50 ps=30
+M1007 a_n1_n45# d gnd Gnd CMOSN w=5 l=2
++  ad=25 pd=20 as=0 ps=0
+M1008 a_49_n38# a_25_n24# gnd Gnd CMOSN w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 a_25_n24# a_n1_n45# a_18_n39# Gnd CMOSN w=5 l=2
++  ad=25 pd=20 as=0 ps=0
+M1010 q a_42_n24# gnd Gnd CMOSN w=5 l=2
++  ad=25 pd=20 as=0 ps=0
+C0 a_42_n24# q 0.06fF
+C1 gnd d 0.31fF
+C2 a_n1_n45# vdd 0.05fF
+C3 a_25_n24# a_18_n39# 0.05fF
+C4 gnd a_42_n24# 0.10fF
+C5 a_n1_n45# a_18_n39# 0.12fF
+C6 gnd clk 0.09fF
+C7 w_n14_n34# a_n8_n28# 0.08fF
+C8 a_n1_n45# a_n8_n28# 0.10fF
+C9 vdd d 0.05fF
+C10 a_25_n24# w_n14_n34# 0.18fF
+C11 a_42_n24# vdd 0.17fF
+C12 a_25_n24# a_n1_n45# 0.05fF
+C13 w_n14_n34# a_n1_n45# 0.05fF
+C14 gnd q 0.05fF
+C15 clk vdd 0.67fF
+C16 d a_n8_n28# 0.45fF
+C17 a_18_n39# clk 0.10fF
+C18 w_n14_n34# d 0.15fF
+C19 clk a_n8_n28# 0.08fF
+C20 a_25_n24# a_42_n24# 0.18fF
+C21 vdd q 0.10fF
+C22 a_42_n24# a_49_n38# 0.05fF
+C23 w_n14_n34# a_42_n24# 0.42fF
+C24 a_25_n24# clk 0.14fF
+C25 clk a_49_n38# 0.10fF
+C26 w_n14_n34# clk 0.58fF
+C27 a_n1_n45# clk 0.29fF
+C28 gnd a_18_n39# 0.05fF
+C29 gnd a_n8_n28# 0.02fF
+C30 w_n14_n34# q 0.03fF
+C31 a_25_n24# gnd 0.46fF
+C32 clk d 0.02fF
+C33 gnd a_49_n38# 0.26fF
+C34 a_42_n24# clk 0.23fF
+C35 a_n1_n45# gnd 0.09fF
+C36 vdd a_n8_n28# 0.10fF
+C37 a_25_n24# vdd 0.35fF
+C38 w_n14_n34# vdd 0.25fF
+C39 gnd Gnd 1.23fF
+C40 a_49_n38# Gnd 0.05fF
+C41 a_18_n39# Gnd 0.05fF
+C42 a_n1_n45# Gnd 0.19fF
+C43 q Gnd 0.05fF
+C44 a_42_n24# Gnd 0.26fF
+C45 vdd Gnd 0.32fF
+C46 a_25_n24# Gnd 0.27fF
+C47 clk Gnd 0.79fF
+C48 d Gnd 0.29fF
+C49 w_n14_n34# Gnd 2.80fF

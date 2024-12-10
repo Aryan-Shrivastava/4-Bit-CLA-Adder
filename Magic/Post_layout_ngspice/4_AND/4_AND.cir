@@ -1,0 +1,89 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param LAMBDA=0.09u
+.param width_N={10*LAMBDA}
+.param width_P={20*LAMBDA}
+.global gnd vdd
+
+Vdd	vdd	gnd	'SUPPLY'
+
+va a gnd pulse 0 1.8 0ns 1ns 1ns 10ns 20ns
+vb b gnd pulse 0 1.8 0ns 1ns 1ns 5ns 10ns
+vc c gnd pulse 0 1.8 0ns 1ns 1ns 15ns 30ns
+vd d gnd pulse 0 1.8 0ns 1ns 1ns 20ns 40ns
+
+.option scale=0.09u
+
+M1000 a_n133_n28# a gnd Gnd CMOSN w=40 l=2
++  ad=400 pd=180 as=250 ps=120
+M1001 out a_n133_27# vdd w_n146_21# CMOSP w=20 l=2
++  ad=100 pd=50 as=500 ps=250
+M1002 a_n133_27# d a_n95_n28# Gnd CMOSN w=40 l=2
++  ad=200 pd=90 as=400 ps=180
+M1003 a_n114_n28# b a_n133_n28# Gnd CMOSN w=40 l=2
++  ad=400 pd=180 as=0 ps=0
+M1004 a_n133_27# d vdd w_n146_21# CMOSP w=20 l=2
++  ad=400 pd=200 as=0 ps=0
+M1005 a_n133_27# b vdd w_n146_21# CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1006 out a_n133_27# gnd Gnd CMOSN w=10 l=2
++  ad=50 pd=30 as=0 ps=0
+M1007 a_n133_27# c vdd w_n146_21# CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+M1008 a_n95_n28# c a_n114_n28# Gnd CMOSN w=40 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 a_n133_27# a vdd w_n146_21# CMOSP w=20 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 a_n114_n28# c 0.03fF
+C1 a_n133_n28# b 0.03fF
+C2 gnd a 0.03fF
+C3 a w_n146_21# 0.06fF
+C4 d w_n146_21# 0.06fF
+C5 a_n114_n28# gnd 0.17fF
+C6 b a_n133_27# 0.15fF
+C7 vdd a 0.02fF
+C8 vdd d 0.02fF
+C9 c w_n146_21# 0.06fF
+C10 vdd c 0.02fF
+C11 vdd w_n146_21# 0.41fF
+C12 b w_n146_21# 0.06fF
+C13 vdd b 0.02fF
+C14 a_n133_27# out 0.05fF
+C15 a_n133_27# a_n95_n28# 0.47fF
+C16 d a_n95_n28# 0.03fF
+C17 a_n114_n28# a_n95_n28# 0.51fF
+C18 a_n133_n28# a_n133_27# 0.05fF
+C19 gnd out 0.10fF
+C20 out w_n146_21# 0.04fF
+C21 gnd a_n95_n28# 0.17fF
+C22 vdd out 0.25fF
+C23 a_n133_n28# a_n114_n28# 0.51fF
+C24 a_n133_27# a 0.05fF
+C25 a_n133_27# d 0.15fF
+C26 a_n114_n28# a_n133_27# 0.05fF
+C27 a_n133_n28# gnd 0.68fF
+C28 a_n133_27# c 0.15fF
+C29 gnd a_n133_27# 0.21fF
+C30 a_n133_27# w_n146_21# 0.24fF
+C31 vdd a_n133_27# 1.37fF
+C32 a_n95_n28# Gnd 0.16fF
+C33 a_n114_n28# Gnd 0.16fF
+C34 a_n133_n28# Gnd 0.16fF
+C35 gnd Gnd 0.97fF
+C36 out Gnd 0.04fF
+C37 vdd Gnd 0.10fF
+C38 a_n133_27# Gnd 0.95fF
+C39 d Gnd 0.13fF
+C40 c Gnd 0.13fF
+C41 b Gnd 0.13fF
+C42 a Gnd 0.13fF
+C43 w_n146_21# Gnd 3.62fF
+
+.tran 0.1n 100n
+.control
+    run
+    set curplottitle="2023102025- Aryan Shrivastava"
+    set color0=white
+    set color1=black
+    plot v(a) v(b)+2 v(c)+4 v(d)+6 v(out)+8
+.endc

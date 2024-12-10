@@ -1,0 +1,39 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param LAMBDA=0.09u
+.param width_N={10*LAMBDA}
+.param width_P={20*LAMBDA}
+* .param w={45*LAMBDA}
+.global gnd vdd
+
+Vdd	vdd	gnd	'SUPPLY'
+
+va a gnd pulse 0 1.8 0ns 1ns 1ns 10ns 20ns
+vb b gnd pulse 0 1.8 0ns 1ns 1ns 5ns 10ns
+
+
+*******************************************************************************************************************************************************
+* Inverter Circuit
+.subckt inv y x vdd gnd 
+    M1 y x gnd gnd  CMOSN W={width_N} L={2*LAMBDA} AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+    M2 y x vdd vdd  CMOSP W={width_P} L={2*LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+.ends inv
+*******************************************************************************************************************************************************
+
+.subckt xor_ptl y a b vdd gnd  
+    xinv a_bar a vdd gnd inv
+    M1 y b a vdd CMOSP W={width_P} L={2*LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+    M2 y b a_bar gnd CMOSN W={width_N} L={2*LAMBDA} AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+    M3 y a b vdd CMOSP W={width_P} L={2*LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+    M4 y a_bar b gnd CMOSN W={width_N} L={2*LAMBDA} AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+.ends xor_ptl
+
+x_xor out a b vdd gnd xor_ptl
+.tran 0.1n 50ns
+
+.control
+set color0=white
+set color1=black
+set curplottitle="2023102025- Aryan Shrivastava"
+plot v(a) v(b)+2 v(out)+4
+.endc

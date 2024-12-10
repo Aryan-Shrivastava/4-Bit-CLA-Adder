@@ -1,0 +1,39 @@
+.include TSMC_180nm.txt
+.param SUPPLY=1.8
+.param LAMBDA=0.09u
+.param width_N={10*LAMBDA}
+.param width_P={20*LAMBDA}
+.global gnd vdd
+
+Vdd	vdd	gnd	'SUPPLY'
+
+va a gnd pulse 0 1.8 0ns 1ns 1ns 10ns 20ns
+vb b gnd pulse 0 1.8 0ns 1ns 1ns 5ns 10ns
+vc c gnd pulse 0 1.8 0ns 1ns 1ns 15ns 30ns
+vd d gnd pulse 0 1.8 0ns 1ns 1ns 20ns 40ns
+
+*******************************************************************************************************************************************************
+* Nand Gate 4 input
+.subckt nand_4_in y a b c d vdd gnd 
+    .param f={4}
+    M1 y a vdd vdd CMOSP W={width_P} L={2*LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+    M2 y b vdd vdd CMOSP W={width_P} L={2*LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+    M3 y c vdd vdd CMOSP W={width_P} L={2*LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+    M4 y d vdd vdd CMOSP W={width_P} L={2*LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+
+    M5 y a t1 gnd CMOSN W={f*width_N} L={2*LAMBDA} AS={5*f*width_N*LAMBDA} PS={10*LAMBDA+2*f*width_N} AD={5*f*width_N*LAMBDA} PD={10*LAMBDA+2*f*width_N}
+    M6 t1 b t2 gnd CMOSN W={f*width_N} L={2*LAMBDA} AS={5*f*width_N*LAMBDA} PS={10*LAMBDA+2*f*width_N} AD={5*f*width_N*LAMBDA} PD={10*LAMBDA+2*f*width_N}
+    M7 t2 c t3 gnd CMOSN W={f*width_N} L={2*LAMBDA} AS={5*f*width_N*LAMBDA} PS={10*LAMBDA+2*f*width_N} AD={5*f*width_N*LAMBDA} PD={10*LAMBDA+2*f*width_N}
+    M8 t3 d gnd gnd CMOSN W={f*width_N} L={2*LAMBDA} AS={5*f*width_N*LAMBDA} PS={10*LAMBDA+2*f*width_N} AD={5*f*width_N*LAMBDA} PD={10*LAMBDA+2*f*width_N}
+.ends nand_4_in
+
+x_nand_4_in y a b c d vdd gnd nand_4_in
+
+.tran 0.1n 100n
+.control
+    run
+    set curplottitle="2023102025- Aryan Shrivastava"
+    set color0=white
+    set color1=black
+    plot v(a) v(b)+2 v(c)+4 v(d)+6 v(y)+8
+.endc

@@ -1,0 +1,43 @@
+* SPICE3 file created from xor.ext - technology: scmos
+
+.option scale=0.09u
+
+M1000 a_bar a vdd w_n30_42# pfet w=20 l=2
++  ad=100 pd=50 as=100 ps=50
+M1001 out b a_bar Gnd nfet w=10 l=2
++  ad=100 pd=60 as=100 ps=60
+M1002 out a_bar b Gnd nfet w=10 l=2
++  ad=0 pd=0 as=50 ps=30
+M1003 a_bar a gnd Gnd nfet w=10 l=2
++  ad=0 pd=0 as=50 ps=30
+M1004 b a out w_30_50# pfet w=20 l=2
++  ad=100 pd=50 as=200 ps=100
+M1005 out b a w_0_49# pfet w=20 l=2
++  ad=0 pd=0 as=100 ps=50
+C0 b w_0_49# 0.07fF
+C1 w_30_50# out 0.05fF
+C2 a_bar b 0.11fF
+C3 gnd a 0.05fF
+C4 w_30_50# b 0.09fF
+C5 b out 0.63fF
+C6 a vdd 0.38fF
+C7 a w_0_49# 0.09fF
+C8 a_bar a 0.05fF
+C9 a w_n30_42# 0.07fF
+C10 gnd a_bar 0.10fF
+C11 a w_30_50# 0.07fF
+C12 a_bar vdd 0.25fF
+C13 a out 0.38fF
+C14 vdd w_n30_42# 0.09fF
+C15 a_bar w_n30_42# 0.05fF
+C16 out w_0_49# 0.05fF
+C17 a_bar out 0.20fF
+C18 gnd Gnd 0.03fF
+C19 out Gnd 0.20fF
+C20 a_bar Gnd 0.41fF
+C21 vdd Gnd 0.03fF
+C22 a Gnd 0.28fF
+C23 b Gnd 0.84fF
+C24 w_30_50# Gnd 0.80fF
+C25 w_0_49# Gnd 0.67fF
+C26 w_n30_42# Gnd 0.84fF
